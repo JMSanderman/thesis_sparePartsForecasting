@@ -19,16 +19,16 @@ pd.options.mode.chained_assignment = None  # default='warn'
 #######################################################################################
 
 # load dictionary with demand data frames
-with open('Data//dict_demand_periodIsWeek.pkl', 'rb') as f:
+with open('Data//dict_demandPublished.pkl', 'rb') as f:
     dict_demand = pickle.load(f)
 
 # load data frame with lead time and price information
-df_price_leadtime = pd.read_csv('Data//df_price_leadtime_part.csv')
+df_price_leadtime = pd.read_csv('Data//df_price_leadtimePublished.csv')
 
 
 # put all spare parts that are forecasted in a list
-parts = pd.read_csv('Data//df_all_parts.csv')
-parts =  parts[parts.columns[0]].values.tolist() # convert to list
+parts = pd.read_csv('Data//df_consideredSpares.csv')
+parts = parts[parts.columns[0]].values.tolist() # convert to list
 
 
 #######################################################################################
