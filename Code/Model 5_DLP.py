@@ -220,11 +220,11 @@ for i, part in enumerate(parts):
         df_test['periodMASE_horizonAhead'] = np.nan
 
         '''
-        Om het inventory systemt straks te initialiseren, gaan we nu forecast maken voor eerste periode, waar we voor elke
-        onderdeel lead time van 1 week aanhouden. Aan de hand hiervan ga je dus straks eind week 51 2021 al order plaatsen,
-        die er dan week 1 van 2022 is. 
-        Voor initial forecast moet er L+R+1 vooruit geforecast worden. Dit aangezien de eerste bestelling pas eind week 1 
-        plaats vind, en die komt L+R binnen. Echter moet week 1 ook afgedekt worden 
+        To initialize the inventory system, we make an intial forecast at the end of week 51 in 2021. We assume an one week
+        lead time for the initial order. So it will arrive at the end of week 52 and beginning of 2022 available to satisfy
+        demand.
+        For the initial forecast, the forecast horizon is L+R+1. +1 because the earliest moment a next order will be placed
+        is the end of week 1 in 2022. so this initial order should also cover this first week of the test period.
         '''
         # get data before this week
         df_demandBeforeInitialForecast = df_demand_part[df_demand_part['date'] <= (start_date + datetime.timedelta(weeks=-2))]
