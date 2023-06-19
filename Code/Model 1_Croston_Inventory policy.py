@@ -21,13 +21,13 @@ with open('Output//model1_Croston//dict_forecast_Croston.pkl', 'rb') as f:
     dict_demand_Croston = pickle.load(f)
 
 # load data frame with lead time and price information
-df_price_leadtime = pd.read_csv('Output//EDA//Demand//df_price_leadtime_part.csv')
+df_price_leadtime = pd.read_csv('Data//df_price_leadtimePublished.csv')
 
 # Save results
 df_initialForecast = pd.read_csv('Output//model1_Croston//df_initialForecast_Croston.csv')
 
 # put all spare parts that are forecasted in a list
-parts = pd.read_csv('Data//df_all_parts.csv')
+parts = pd.read_csv('Data//df_consideredSpares.csv')
 parts = parts[parts.columns[0]].values.tolist() # convert to list
 
 
